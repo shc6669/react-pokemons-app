@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Based on PokeAPI to fetch data
+- See documentation on [Pokeapi](https://pokeapi.co/).
+- Add .env files to environment file.
+- Add 'REACT_APP_API_URL' parameters in your .env with [Pokeapi](https://pokeapi.co/)
+
 ## Available Scripts
 
 In the project directory, you can run:
