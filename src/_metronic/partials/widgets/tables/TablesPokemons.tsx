@@ -1,12 +1,48 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, {useEffect} from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import ApiService from '../../../../services/ApiService'
 
 type Props = {
   className: string
 }
 
 const TablesPokemons: React.FC<Props> = ({className}) => {
+  const API_URL = process.env.REACT_APP_API_URL
+  const queryParams = {
+    data: {
+      limit: '30',
+      offset: ''
+    }
+  };
+  const GET_POKEMONS_URL = `${API_URL}/pokemon`
+
+  const fetchApiPokemons = () => {
+    ApiService.getAllPokemon(GET_POKEMONS_URL, queryParams)
+    .then(({ data }) => {
+        const pokemons = data;
+        const foo: string[] = [];
+        pokemons.results.forEach((pokemon: any) => {
+            pokemon.id = pokemon.url
+                .split("/")
+                .filter((part: any) => {
+                    return !!part;
+                })
+                .pop();
+            foo.push(pokemon);
+        })
+    })
+    .catch(({ response }) => {
+        console.log(response)
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchApiPokemons()
+    }, 500)
+  })
+  
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
