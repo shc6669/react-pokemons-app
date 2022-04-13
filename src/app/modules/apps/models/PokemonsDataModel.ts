@@ -4,3 +4,9 @@ export interface PokemonsDataModel {
     previous: string;
     result: Array<string>;
 }
+
+export interface PokemonsData {
+    name: string;
+    url: string;
+    id: string;
+}
