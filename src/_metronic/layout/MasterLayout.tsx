@@ -10,6 +10,7 @@ import {PageDataProvider, useLayout} from './core'
 import {useLocation} from 'react-router-dom'
 import {MenuComponent} from '../../_metronic/assets/ts/components'
 import clsx from 'clsx'
+import {Main} from '../partials' 
 
 const MasterLayout: React.FC = ({children}) => {
   const {classes} = useLayout()
@@ -52,6 +53,9 @@ const MasterLayout: React.FC = ({children}) => {
         </div>
       </div>
 
+      {/* begin:: Modals */}
+      <Main />
+      {/* end:: Modals */}
       <ScrollTop />
     </PageDataProvider>
   )

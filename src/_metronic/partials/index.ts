@@ -17,3 +17,6 @@ export * from './content/editor/EditorToolbar'
 export * from './content/fallback-view/FallbackView'
 export * from './content/code-highlight/CodeBlock'
 export * from './content/portal/Portal'
+
+// modals
+export * from './modals/Main'

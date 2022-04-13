@@ -26,6 +26,7 @@
 		@include placeholder($input-solid-placeholder-color);
 		color: $input-solid-color;
 		transition: $transition-input;
+		width: 50%;
 
 		.dropdown.show > &,
 		&:active,

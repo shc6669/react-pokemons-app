@@ -44,7 +44,8 @@ const TablesPokemons: React.FC<Props> = ({className}) => {
     setTimeout(() => {
       fetchApiPokemons()
     }, 500)
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
   return (
     <div className={`card ${className}`}>
@@ -97,39 +98,38 @@ const TablesPokemons: React.FC<Props> = ({className}) => {
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-              {pokemons.length > 0 ? pokemons.map((pokemon: PokemonsData, index: number) => 
-              <tr key={index}>
-                <td>
-                  <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                    <input className='form-check-input widget-9-check' type='checkbox' value='1' />
-                  </div>
-                </td>
-                <td>
-                  <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-50px me-5'>
-                      <img src={imagePreviewUrl + pokemon.id + '.png'} alt={pokemon.name} />
-                    </div>
-                    <div className='d-flex justify-content-start flex-column'>
-                      <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                        {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-                      </a>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span className='text-muted text-end fw-bold text-muted d-block fs-7'>
-                    10 pcs
-                  </span>
-                </td>
-              </tr>
-              ) : (
-                <tr>
-                  <td>
-                    Loading
-                  </td>
-                </tr>
-              )}
-
+              {pokemons.map((pokemon: PokemonsData, index: number) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <div className='form-check form-check-sm form-check-custom form-check-solid'>
+                        <input className='form-check-input widget-9-check' type='checkbox' value='1' />
+                      </div>
+                    </td>
+                    <td>
+                      <div className='d-flex align-items-center'>
+                        <div className='symbol symbol-50px me-5'>
+                          <img src={imagePreviewUrl + pokemon.id + '.png'} alt={pokemon.name} />
+                        </div>
+                        <div className='d-flex justify-content-start flex-column'>
+                          <a href='#' 
+                            className='text-dark fw-bolder text-hover-primary fs-6'
+                            data-bs-toggle='modal'
+                            data-bs-target='#kt_modal_create_app'
+                          >
+                            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span className='text-muted text-end fw-bold text-muted d-block fs-7'>
+                        10 pcs
+                      </span>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
             {/* end::Table body */}
           </table>
