@@ -19,4 +19,4 @@ export * from './content/code-highlight/CodeBlock'
 export * from './content/portal/Portal'
 
 // modals
-export * from './modals/Main'
+export * from './modals/create-app/Main'

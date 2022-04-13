@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import {KTSVG} from '../../../helpers'
 import ApiService from '../../../../services/ApiService'
 import { PokemonsData } from '../../../../app/modules/apps'
@@ -52,7 +53,7 @@ const TablesPokemons: React.FC<Props> = ({className}) => {
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>Stock Pokemons</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Stok Pokemons</span>
         </h3>
         {/* begin::Search Form */}
         <form className='w-100 position-relative' autoComplete='off'>
@@ -112,13 +113,11 @@ const TablesPokemons: React.FC<Props> = ({className}) => {
                           <img src={imagePreviewUrl + pokemon.id + '.png'} alt={pokemon.name} />
                         </div>
                         <div className='d-flex justify-content-start flex-column'>
-                          <a href='#' 
+                          <Link to={`/pokemon/detail/${pokemon.name}`}
                             className='text-dark fw-bolder text-hover-primary fs-6'
-                            data-bs-toggle='modal'
-                            data-bs-target='#kt_modal_create_app'
                           >
                             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </td>

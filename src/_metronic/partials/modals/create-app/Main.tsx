@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {FC, useEffect, useRef, useState} from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../helpers'
+import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 import {Formik, Form, FormikValues, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-import {StepperComponent} from '../../assets/ts/components'
+import {StepperComponent} from '../../../assets/ts/components'
 
 interface ICreateAccount {
   appName: string
