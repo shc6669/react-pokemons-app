@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {KTSVG} from '../../../helpers'
 import ApiService from '../../../../services/ApiService'
-import { PokemonsData } from '../../../../app/pages/index'
+import {PokemonsData} from '../../../../app/pages/index'
 
 type Props = {
   className: string
